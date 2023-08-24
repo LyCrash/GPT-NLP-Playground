@@ -3,7 +3,7 @@ import nltk
 import yake
 import pandas as pd
 
-text="This is a sample text that contains keywords to extract"
+text="Ceci est un simple exemple qui contient des mots-clès à extraire"
 
 #The higher the score, the more relevant the keyword is.
 def kw_extract_rake(phrase):
@@ -56,12 +56,12 @@ def kw_extract_yake_fr(phrase):
 # returns the index of a line in the "data.csv" file
 def find_index(line):
     # Read the CSV file
-    data = pd.read_csv('data.csv')
+    data = pd.read_csv('..\Datasets\Raw\data.csv')
     # Find the index (row number) of the given prompt
     index = data[ (data['Question'] == line) | (data['Reponse'] == line) ].index
     return index.item() if index.any() else None
 
 # print("Sentence= ",text)
-# print("\n_______________ Using RAKE method\nKeywords = ",kw_extract_rake(text))
-# print("\n_______________ Using YAKE method\nKeywords = ",kw_extract_yake(text))
-#print(find_index(text),f": {text}")
+# print("\n_______________ Using RAKE method\nKeywords = ",kw_extract_rake_fr(text))
+# print("\n_______________ Using YAKE method\nKeywords = ",kw_extract_yake_fr(text))
+# print(find_index(text),f": {text}")

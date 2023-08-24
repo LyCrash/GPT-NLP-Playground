@@ -12,7 +12,7 @@ def check_csv_structure(file_path):
 
     return problematic_rows
 
-file_path = "data.csv"
+file_path = "..\Datasets\Raw\data.csv"
 problematic_rows = check_csv_structure(file_path)
 
 if problematic_rows:
