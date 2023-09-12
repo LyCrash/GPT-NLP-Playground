@@ -44,4 +44,4 @@ def csv2jsonl_ccf(filename, systemRole):
                 f_out.write(entry)
 
 
-#csv2jsonl_ccf ("data","You are a kind helpful BlaBlaCar customer-support assistant")
+#csv2jsonl_ccf ("../Datasets/Raw/data","Tu es un expert en assistance clientèle bienveillant chez BlaBlaCar, la plateforme de covoiturage en ligne")
