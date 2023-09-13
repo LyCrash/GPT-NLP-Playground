@@ -9,7 +9,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 #return the response to the prompt using the top_matching_questions method
-def chat_with_gpt(title, prompt, context, csv_filename, top_n):
+def chat_with_gpt_embed(title, prompt, context, csv_filename, top_n):
     try:
         
         # Use the top_matching_questions function to get relevant questions and responses
@@ -74,7 +74,7 @@ def main():
             break
 
         # Call the chat_with_gpt function to get the assistant's reply
-        assistant_reply = chat_with_gpt(title, user_input, context, csv_filename, top_n)
+        assistant_reply = chat_with_gpt_embed(title, user_input, context, csv_filename, top_n)
 
         print("BlaBlaCar:", assistant_reply)
         print()
