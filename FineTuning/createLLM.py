@@ -17,19 +17,24 @@ from dotenv import load_dotenv
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-# STEP-1: uploading the training file"file-rjwhrIOw7EdTbWhFqVlYYGlc"
+# STEP-1: uploading the training file
+data = openai.File.create(
+    file=open("..\Datasets\Raw\data_pcp.jsonl", "rb"),
+    purpose='fine-tune'
+)
+print(data.id) # ex: file-rjwhrIOw7EdTbWhFqVlYYGlc
 
 # STEP-2: creating the model
-# resp = openai.FineTuningJob.create(training_file="file-rjwhrIOw7EdTbWhFqVlYYGlc", model="gpt-3.5-turbo")
-# print(resp)  
-# #ex1 fine-tune job: ftjob-FrCdJ2SQcVLl9HttPhkk7pZL
+resp = openai.FineTuningJob.create(training_file=data.id, model="gpt-3.5-turbo")
+print(resp)  
+#ex1 fine-tune job: ftjob-FrCdJ2SQcVLl9HttPhkk7pZL
 
 
 # STEP-3: Using the model
 
 # List 10 fine-tuning jobs
-# jobs = openai.FineTuningJob.list(limit=10)
-# print (jobs) #--> get the fine-tuning job id (data.id)
+jobs = openai.FineTuningJob.list(limit=10)
+print (jobs) #--> get the fine-tuning job id (data.id)
 
 # Retrieve the state of a fine-tune job
 print (openai.FineTuningJob.retrieve("ftjob-18xMJG80MoGVe93PukXnLxmM"))
