@@ -19,7 +19,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # STEP-1: uploading the training file
 data = openai.File.create(
-    file=open("..\Datasets\Raw\data_pcp.jsonl", "rb"),
+    file=open("..\Datasets\Raw\data_ccf.jsonl", "rb"),
     purpose='fine-tune'
 )
 print(data.id) # ex: file-rjwhrIOw7EdTbWhFqVlYYGlc
